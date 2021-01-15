@@ -43,8 +43,14 @@ router.post('/users', asyncHelper(async (req, res, next) => {
       if (user.password) {
         user.password = bcryptjs.hashSync(user.password);
       }
-      await User.create(user);
-      res.status(201).location('/').end();
+      //await User.create(user);
+      //res.status(201).location('/').end();
+      let newUser = await User.create(req.body);
+      res.status(200).json({
+        message: "User created successfully",
+        newUser: newUser,
+      });
+      //res.status(201).location('/').end();
     } catch (err) {
       if (err.name === 'SequelizeValidationError') {
         err.status = 400;   
