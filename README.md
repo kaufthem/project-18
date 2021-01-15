@@ -1,6 +1,8 @@
 ### Project 10
 
-To run the project: Go to the api directory in the command line and enter:
+To run the project: 
+
+First go to the api directory in the command line and enter:
 ```
 npm install
 ```
